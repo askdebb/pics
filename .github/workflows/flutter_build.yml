@@ -24,7 +24,7 @@ jobs:
         run: yes | sdkmanager --licenses
       - run: flutter pub get
       - run: flutter build apk --release
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3   # Update to v3
         with:
           name: app-release.apk
           path: build/app/outputs/flutter-apk/app-release.apk
