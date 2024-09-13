@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: subosito/flutter-action@v3  # Use v3 of the flutter action
+      - uses: subosito/flutter-action@v2  # Correct version is v2, not v3
         with:
-          flutter-version: '3.24.3'  # Explicit version
+          flutter-version: '3.24.3'  # Explicit Flutter version
       - name: Set up Android SDK
         uses: android-actions/setup-android@v2
         with:
@@ -23,7 +23,7 @@ jobs:
         run: yes | sdkmanager --licenses
       - run: flutter pub get
       - run: flutter build apk --release
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v3  # v3 of upload-artifact is fine
         with:
           name: app-release.apk
           path: build/app/outputs/flutter-apk/app-release.apk
